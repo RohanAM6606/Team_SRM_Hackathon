@@ -27,17 +27,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-# Ignore everything in components
-src/components/*
-
-# Allow these folders
-!src/components/common/
-!src/components/hero/
-
-# Ignore everything inside them
-src/components/common/*
-src/components/hero/*
-
-# Allow specific files
-!src/components/common/Navbar.jsx
-!src/components/hero/HeroSection.jsx
