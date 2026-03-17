@@ -1,9 +1,12 @@
 import Navbar from "../components/common/Navbar";
 import HeroSection from "../components/hero/HeroSection";
 import About from "../components/about/About";
+<<<<<<< HEAD
 import Domains from "../components/Domains/Domains";
 import Events from "../components/Events/Events";
 import Teams from "../components/Teams/Teams";  
+=======
+>>>>>>> b73ede13fea3fa89f166a351703a09296ef286d8
 
 
 const Home = () => {
@@ -18,6 +21,7 @@ return ( <div> <Navbar />
     <About />
   </div>
 
+<<<<<<< HEAD
   <div data-section="domains">
     <Domains />
     
@@ -33,6 +37,10 @@ return ( <div> <Navbar />
   
   
 
+=======
+
+  
+>>>>>>> b73ede13fea3fa89f166a351703a09296ef286d8
 </div>
 
 

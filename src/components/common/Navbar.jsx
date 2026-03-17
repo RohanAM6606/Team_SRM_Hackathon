@@ -110,22 +110,22 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Hamburger */}
           <button
-            className="md:hidden w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center"
+            className="md:hidden relative w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 backdrop-blur-sm flex items-center justify-center transition-all duration-300"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <div className="w-5 h-4 flex flex-col justify-between">
+            <div className="relative w-5 h-3.5 flex flex-col justify-between">
               <span
-                className={`h-0.5 bg-white rounded transition ${
+                className={`w-full h-0.5 bg-white rounded-full transition-all duration-300 ${
                   menuOpen ? "rotate-45 translate-y-1.5" : ""
                 }`}
-              ></span>
+              />
               <span
-                className={`h-0.5 bg-white rounded transition ${
+                className={`w-full h-0.5 bg-white rounded-full transition-all duration-300 ${
                   menuOpen ? "-rotate-45 -translate-y-1.5" : ""
                 }`}
-              ></span>
+              />
             </div>
           </button>
         </div>
@@ -136,16 +136,26 @@ const Navbar = () => {
             menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="px-6 pb-6 space-y-2">
-            {navItems.map((item) => (
+          <div className="px-4 pb-4 space-y-2 pt-4">
+            {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item)}
-                className={`block w-full text-left px-4 py-3 rounded-xl font-semibold transition ${
-                  activeSection === item.id
-                    ? "bg-gradient-to-r from-blue-500 to-cyan-400 text-white"
-                    : "text-gray-300 hover:bg-white/10"
-                }`}
+                className={`
+                  block w-full text-left px-4 py-3 rounded-xl font-bold
+                  transition-all duration-300 transform
+                  ${
+                    activeSection === item.id
+                      ? "bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-lg shadow-blue-500/30"
+                      : "text-gray-300 hover:text-white hover:bg-white/10"
+                  }
+                `}
+                style={{
+                  animationDelay: `${index * 50}ms`,
+                  animation: menuOpen
+                    ? "slideIn 0.3s ease-out forwards"
+                    : "none",
+                }}
               >
                 {item.label}
               </button>
@@ -153,6 +163,19 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </nav>
   );
 };
