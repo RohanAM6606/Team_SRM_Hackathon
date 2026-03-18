@@ -5,16 +5,9 @@ import { Mail, MapPin, Send, Linkedin, Instagram } from "lucide-react";
 function Footer() {
   return (
     <footer className="relative bg-gradient-to-b from-[#020617] via-[#020b1f] to-black text-white px-6 py-16 overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-80 blur-[1px]" />
 
-  
-      <div className="absolute top-0 left-0 w-full h-[2px] 
-        bg-gradient-to-r from-transparent via-cyan-400 to-transparent 
-        opacity-80 blur-[1px]" />
-
-      
-      <div className="absolute top-0 left-0 w-full h-16 
-        bg-[linear-gradient(to_right,rgba(0,255,255,0.15)_1px,transparent_1px)] 
-        bg-[size:40px_1px] opacity-40" />
+      <div className="absolute top-0 left-0 w-full h-16 bg-[linear-gradient(to_right,rgba(0,255,255,0.15)_1px,transparent_1px)] bg-[size:40px_1px] opacity-40" />
 
       <div className="absolute top-0 left-0 w-full h-[2px] overflow-hidden">
         <div className="w-40 h-full bg-cyan-400 blur-sm animate-topBeam"></div>
@@ -24,8 +17,6 @@ function Footer() {
       <div className="absolute inset-0 bg-black/70"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
-
-      
         <div>
           <h2 className="text-2xl font-bold text-cyan-400 mb-4">
             TEAM SRM HACKATHON
@@ -48,7 +39,6 @@ function Footer() {
           </div>
         </div>
 
-      
         <div>
           <h3 className="text-lg font-semibold text-cyan-400 mb-4">
             Quick Links
@@ -62,7 +52,6 @@ function Footer() {
           </div>
         </div>
 
-    }
         <div>
           <h3 className="text-lg font-semibold text-cyan-400 mb-4">
             Stay Updated
@@ -85,10 +74,7 @@ function Footer() {
         </div>
       </div>
 
-      {/* DIVIDER */}
       <div className="relative z-10 mt-12 border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-
-        {/* SOCIALS */}
         <div className="flex gap-4">
           <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:border-cyan-400 hover:text-cyan-400 transition cursor-pointer">
             <Linkedin size={18} />
@@ -98,13 +84,11 @@ function Footer() {
           </div>
         </div>
 
-        {/* COPYRIGHT */}
         <p className="text-gray-500 text-sm text-center">
           © 2026 TEAM SRM HACKATHON, SRMIST KTR. All rights reserved.
         </p>
       </div>
 
-   
       <style>{`
         @keyframes topBeam {
           0% { transform: translateX(-100%); opacity: 0; }
@@ -117,7 +101,6 @@ function Footer() {
           animation: topBeam 3s linear infinite;
         }
       `}</style>
-
     </footer>
   );
 }
