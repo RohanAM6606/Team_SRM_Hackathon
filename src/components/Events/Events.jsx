@@ -1,102 +1,82 @@
 import React from "react";
+import GridBackground from "../ui/GridBackground";
+import hackImg from "./hack.jpg";
+import ideaImg from "./idea.jpg";
+import semiImg from "./semi.jpg";
+const events = [
+  {
+    title: "Ideathon 6.0",
+    img: ideaImg,
+  },
+  {
+    title: "Semicolon 11.0",
+    img: semiImg,
+  },
+  {
+    title: "Hackathon 9.0",
+    img: hackImg,
+  },
+
+];
 
 function Events() {
   return (
-    <>
-      <style>{`
-        .events {
-          min-height: 100vh;
-          padding: 4rem 2rem;
-          background-color: #c0a7f7;
-          text-align: center;
-        }
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-black via-[#020617] to-black py-20 px-6">
 
-        .events h2 {
-          font-size: 2.5rem;
-          margin-bottom: 3rem;
-        }
+      {/* BACKGROUND */}
+      <GridBackground />
+      <div className="absolute inset-0 bg-black/70"></div>
 
-        .events-container {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 2rem;
-          max-width: 1100px;
-          margin: 0 auto;
-        }
+      {/* HEADING */}
+      <div className="text-center mb-16 relative z-10">
+        <h2 className="text-4xl md:text-5xl font-bold text-white">
+          Our <span className="text-cyan-400">Events</span>
+        </h2>
+        <p className="text-gray-400 mt-4">
+          Explore our flagship hackathons and competitions.
+        </p>
+      </div>
 
-        .event-card {
-          background: #060606;
-          padding: 2rem;
-          border-radius: 12px;
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          color: white;
-        }
+      {/* POSTER GRID */}
+      <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
 
-        .event-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-        }
+        {events.map((event, index) => (
+          <div
+            key={index}
+            className="group relative rounded-2xl overflow-hidden border border-white/10 hover:border-cyan-400/40 transition duration-300"
+          >
 
-        .event-card h3 {
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
-        }
+            {/* IMAGE */}
+            <img
+              src={event.img}
+              alt={event.title}
+              className="w-full h-[450px] object-cover group-hover:scale-105 transition duration-500"
+            />
 
-        .event-card p {
-          font-size: 1rem;
-          line-height: 1.6;
-          margin-bottom: 1.5rem;
-        }
+            {/* DARK OVERLAY */}
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition"></div>
 
-        .event-card button {
-          padding: 0.6rem 1.5rem;
-          border: none;
-          background-color: #0b0b0b;
-          color: #ffffff;
-          border-radius: 6px;
-          cursor: pointer;
-          font-size: 0.95rem;
-        }
+            {/* CONTENT OVERLAY */}
+            <div className="absolute inset-0 flex flex-col justify-end p-6">
 
-        .event-card button:hover {
-          background-color: #333333;
-        }
-      `}</style>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                {event.title}
+              </h3>
 
-      <section id="events" className="events">
-        <h2>Our Events</h2>
+              <button className="w-fit px-5 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-400 text-white text-sm font-medium hover:scale-105 transition">
+                Know More →
+              </button>
+            </div>
 
-        <div className="events-container">
-          <div className="event-card">
-            <h3>Semicolon</h3>
-            <p>
-              A coding-focused event to sharpen problem-solving skills and
-              logical thinking.
-            </p>
-            <button>Know More</button>
+            {/* GLOW EFFECT */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 
+              bg-gradient-to-r from-cyan-500/10 to-blue-500/10 blur-xl"></div>
+
           </div>
+        ))}
+      </div>
 
-          <div className="event-card">
-            <h3>Ideathon</h3>
-            <p>
-              A platform to brainstorm innovative ideas and turn them into
-              impactful solutions.
-            </p>
-            <button>Know More</button>
-          </div>
-
-          <div className="event-card">
-            <h3>Hackathon</h3>
-            <p>
-              A competitive event where teams build real-world projects within
-              limited time..
-            </p>
-            <button>Know More</button>
-          </div>
-        </div>
-      </section>
-    </>
+    </section>
   );
 }
 
